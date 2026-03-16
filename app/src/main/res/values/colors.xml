@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- THEME COLORS -->
+    <color name="neon_orange">#FF5F1F</color>
+    <color name="dark_orange">#E65100</color>
+    <color name="vibrant_yellow">#FFD600</color>
+    <color name="alert_red">#D32F2F</color>
+    
+    <!-- Aliases to fix linking errors without changing all files -->
+    <color name="dark_green">@color/dark_orange</color>
+    <color name="vibrant_green">@color/neon_orange</color>
+    
+    <!-- Navigation Colors -->
+    <color name="nav_indicator_orange">#FF5F1F</color>
+    <color name="light_orange_fade">#33FF5F1F</color>
+
+    <!-- GRADIENT COLORS -->
+    <color name="gradient_start">#E0F7FA</color>
+    <color name="gradient_end">#FFFFFF</color>
+
+    <!-- NEW THEME COLORS -->
+    <color name="login_bg_peach">#FFE0B2</color>
+    <color name="light_peach_orange">#FFF3E0</color>
+    <color name="login_button_orange">#E65100</color>
+    <color name="login_text_dark">#000000</color>
+    <color name="login_accent_orange">#FF6D00</color>
+    <color name="login_hint_color">#000000</color>
+
+    <!-- Dashboard Colors -->
+    <color name="db_background">#FFF3E0</color>
+    <color name="db_text_primary">#000000</color>
+    <color name="db_text_secondary">#424242</color>
+    <color name="db_dark_green">#E65100</color>
+    <color name="db_card_background">#FFFFFF</color>
+    <color name="db_nav_bg">#121212</color>
+    <color name="db_nav_item_selected">#FF5F1F</color>
+    <color name="db_icon_tint">#000000</color>
+    
+    <!-- Legacy Support -->
+    <color name="card_background">#FFF3E0</color>
+    <color name="light_green_card">#FFF3E0</color>
+    <color name="text_green">#E65100</color>
+
+    <color name="db_stat_positive_bg">#FFF9C4</color>
+    <color name="db_stat_positive_text">#F57F17</color>
+    <color name="db_urgent_orange">#FF5F1F</color>
+    <color name="db_urgent_bg">#FFEBEE</color>
+    <color name="db_chart_bar">#FF8C00</color>
+    <color name="db_chart_line">#FF5F1F</color>
+</resources>

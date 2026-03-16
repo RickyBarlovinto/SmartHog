@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/db_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="48dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="100dp">
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good morning, Silas"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/db_text_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcome_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Here's what's happening at your farm today."
+            android:textColor="@color/db_text_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_text" />
+
+        <!-- 3-CARD ROW -->
+        <LinearLayout
+            android:id="@+id/three_cards_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/welcome_subtitle">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/db_dark_green"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView android:text="Active Batch" android:textSize="11sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="5" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/db_dark_green"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView android:text="Next Feeding" android:textSize="11sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="6:00" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/db_dark_green"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView android:text="Sell Alerts" android:textSize="11sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="3" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- SUMMARY GRID -->
+        <GridLayout
+            android:id="@+id/summary_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/three_cards_row">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_group" app:tint="@color/db_dark_green"/>
+                    <TextView android:layout_marginTop="8dp" android:text="Total Population" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="1,240" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_restaurant" app:tint="@color/db_dark_green"/>
+                    <TextView android:layout_marginTop="8dp" android:text="Active Feeding" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="12 Schedules" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_vaccines" app:tint="@color/db_urgent_orange"/>
+                    <TextView android:layout_marginTop="8dp" android:text="Health Alerts" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="5 Due" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_urgent_orange" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_monitoring" app:tint="@color/db_dark_green"/>
+                    <TextView android:layout_marginTop="8dp" android:text="Avg Growth" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="0.85 kg" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
+
+        <!-- GROWTH TREND -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/trend_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/summary_grid">
+            <LinearLayout
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="Growth Trend" android:textStyle="bold" android:textSize="18sp" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="Weight gain over the last 7 days" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <View android:layout_marginTop="16dp" android:layout_width="match_parent" android:layout_height="150dp" android:background="@color/db_dark_green" android:alpha="0.1"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- HEALTH TASKS -->
+        <TextView
+            android:id="@+id/health_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Tasks"
+            android:textStyle="bold"
+            android:textColor="@color/db_text_primary"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/trend_card"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/health_label">
+            <LinearLayout
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="Swine Flu Vaccination - Today" android:textColor="@color/db_text_primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:drawableStart="@drawable/ic_db_vaccines" android:drawablePadding="12dp" android:gravity="center_vertical"/>
+                <TextView android:layout_marginTop="12dp" android:text="Routine Vitamin Boost - Tomorrow" android:textColor="@color/db_text_primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:drawableStart="@drawable/ic_db_vaccines" android:drawablePadding="12dp" android:gravity="center_vertical"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
