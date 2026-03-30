@@ -2,6 +2,8 @@ package com.example.smart_hog
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
@@ -27,15 +29,21 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEt.text.toString()
 
             if (validateInput(email, password)) {
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                // Show Professional Loading Indicator
+                val loading = LoadingUtils.showLoading(this)
+                
+                Handler(Looper.getMainLooper()).postDelayed({
+                    loading.dismiss()
+                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }, 2000) // 2 seconds delay to show the logo rotation
             }
         }
     }
 
-    private fun validateInput(email: String,password: String): Boolean {
+    private fun validateInput(email: String, password: String): Boolean {
         if (email.isEmpty()) {
             emailEt.error = "Email cannot be empty"
             return false

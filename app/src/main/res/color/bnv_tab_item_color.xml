@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Icon is WHITE when selected to sit on top of the orange circular indicator -->
+    <!-- WHITE icon inside the Orange Pill when selected -->
     <item android:color="@android:color/white" android:state_checked="true" />
-    <!-- Icon is NEON ORANGE when not selected -->
+    <!-- NEON ORANGE icon when inactive -->
     <item android:color="@color/neon_orange" />
 </selector>

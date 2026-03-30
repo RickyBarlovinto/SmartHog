@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Camera Permission -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smart_Hog">
 
-        <!-- Welcome Activity - Ang bagong front page -->
+        <!-- Welcome Activity -->
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">
@@ -22,14 +25,21 @@
             </intent-filter>
         </activity>
 
+        <!-- Login -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
 
+        <!-- Dashboard -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.Smart_Hog.Dashboard" />
+
+        <!-- ✅ ADD THIS -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
 
     </application>
 

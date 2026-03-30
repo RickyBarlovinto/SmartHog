@@ -23,17 +23,22 @@
                 android:src="@drawable/background"
                 android:alpha="0.7"/>
 
+            <!-- Profile Icon Corrected Placement (Left) -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_icon"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_alignParentEnd="true"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="48dp"
-                android:layout_marginEnd="24dp"
-                android:padding="12dp"
-                android:src="@drawable/ic_person_white"
+                android:layout_marginStart="24dp"
                 android:background="@drawable/profile_gradient_bg"
-                app:shapeAppearanceOverlay="@style/CircleImageView"/>
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_person_white"
+                app:shapeAppearanceOverlay="@style/CircleImageView"
+                app:strokeColor="@color/white"
+                app:strokeWidth="3dp"
+                android:elevation="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -119,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -162,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -205,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -248,7 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -291,7 +296,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="32dp"
                 android:gravity="center"
-                android:text="VERSION 2.4.0 • ENTERPRISE EDITION"
+                android:text="VERSION 1.0 • RICKYAi EDITION"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:alpha="0.5"

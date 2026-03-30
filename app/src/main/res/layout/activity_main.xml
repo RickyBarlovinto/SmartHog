@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/db_background">
+    android:background="@color/db_background"
+    tools:context=".MainActivity">
 
-    <!-- FRAGMENT CONTAINER -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/nav_card"
@@ -19,14 +18,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <!-- FLOATING NAVIGATION CARD (Eksaktong gaya ng picture) -->
+    <!-- FLOATING NAVIGATION CARD - Fixed Height & Padding -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/nav_card"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="32dp"
-        app:cardCornerRadius="40dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="42dp"
         app:cardElevation="16dp"
         app:cardBackgroundColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +42,9 @@
             app:itemTextColor="@color/bnv_text_color"
             app:itemRippleColor="@color/light_orange_fade"
             app:itemActiveIndicatorStyle="@style/App.CustomIndicator"
-            app:labelVisibilityMode="selected"
+            app:labelVisibilityMode="labeled"
+            app:itemPaddingTop="12dp"
+            app:itemPaddingBottom="12dp"
             app:menu="@menu/bottom_nav_menu" />
 
     </com.google.android.material.card.MaterialCardView>

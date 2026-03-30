@@ -1,14 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Smart_Hog" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Base application theme updated to Material 3 to enable modern Navigation Indicator -->
+    <style name="Theme.Smart_Hog" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_orange</item>
-        <item name="colorPrimaryVariant">@color/dark_orange</item>
         <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/neon_orange</item>
-        <item name="colorSecondaryVariant">@color/neon_orange</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/login_bg_peach</item>
+        <item name="android:windowLightStatusBar">true</item>
 
+        <!-- Fix for general text visibility -->
         <item name="android:textColorPrimary">#000000</item>
         <item name="android:textColorSecondary">#000000</item>
     </style>
@@ -27,12 +30,11 @@
         <item name="materialCardViewStyle">@style/Widget.Material3.CardView.Elevated</item>
     </style>
 
-    <!-- Style for Circular Navigation Indicator (Exactly like the image) -->
+    <!-- THE STYLE TO MATCH YOUR PIC: Floating Orange Pill Indicator -->
     <style name="App.CustomIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/neon_orange</item>
-        <item name="android:width">48dp</item>
-        <item name="android:height">48dp</item>
-        <item name="marginHorizontal">12dp</item>
+        <item name="android:width">60dp</item>
+        <item name="android:height">40dp</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.App.Card.TopRounded" parent="">
