@@ -33,7 +33,6 @@ class ProfileActivity : AppCompatActivity() {
 
     private val CAMERA_REQUEST = 100
     private val GALLERY_REQUEST = 102
-    private val CROP_REQUEST = 103
     private val CAMERA_PERMISSION_CODE = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,31 +92,6 @@ class ProfileActivity : AppCompatActivity() {
         startActivityForResult(intent, GALLERY_REQUEST)
     }
 
-    private fun startCrop(uri: Uri) {
-        try {
-            val cropIntent = Intent("com.android.camera.action.CROP")
-            cropIntent.setDataAndType(uri, "image/*")
-            cropIntent.putExtra("crop", "true")
-            cropIntent.putExtra("aspectX", 1)
-            cropIntent.putExtra("aspectY", 1)
-            cropIntent.putExtra("outputX", 512)
-            cropIntent.putExtra("outputY", 512)
-            cropIntent.putExtra("return-data", true)
-            startActivityForResult(cropIntent, CROP_REQUEST)
-        } catch (e: Exception) {
-            // Fallback: If crop intent fails, load image directly
-            try {
-                val inputStream = contentResolver.openInputStream(uri)
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                if (bitmap != null) {
-                    saveProfileImage(bitmap)
-                }
-            } catch (ex: Exception) {
-                Toast.makeText(this, "Error loading image", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -127,13 +101,12 @@ class ProfileActivity : AppCompatActivity() {
                     photo?.let { saveProfileImage(it) }
                 }
                 GALLERY_REQUEST -> {
-                    data?.data?.let { uri ->
-                        startCrop(uri)
+                    val selectedImage: Uri? = data?.data
+                    selectedImage?.let { uri ->
+                        val inputStream = contentResolver.openInputStream(uri)
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        bitmap?.let { saveProfileImage(it) }
                     }
-                }
-                CROP_REQUEST -> {
-                    val photo = data?.extras?.getParcelable<Bitmap>("data")
-                    photo?.let { saveProfileImage(it) }
                 }
             }
         }
@@ -146,10 +119,9 @@ class ProfileActivity : AppCompatActivity() {
             val prefs = getSharedPreferences("user_profile", Context.MODE_PRIVATE)
             val stream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            val encodedImage = Base64.encodeToString(stream.toByteArray(), Base64.DEFAULT)
-            prefs.edit().putString("image", encodedImage).apply()
+            prefs.edit().putString("image", Base64.encodeToString(stream.toByteArray(), Base64.DEFAULT)).apply()
             loading.dismiss()
-            Toast.makeText(this, "Profile Picture Updated!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Profile Photo Updated!", Toast.LENGTH_SHORT).show()
         }, 1000)
     }
 
@@ -163,8 +135,7 @@ class ProfileActivity : AppCompatActivity() {
         val imageString = prefs.getString("image", null)
         if (imageString != null) {
             val imageBytes = Base64.decode(imageString, Base64.DEFAULT)
-            val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            imageView.setImageBitmap(bitmap)
+            imageView.setImageBitmap(BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size))
         }
     }
 }

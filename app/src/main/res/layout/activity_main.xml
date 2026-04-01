@@ -7,18 +7,19 @@
     android:background="@color/db_background"
     tools:context=".MainActivity">
 
+    <!-- MAIN FRAGMENT CONTAINER -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/nav_card"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <!-- FLOATING NAVIGATION CARD - Fixed Height & Padding -->
+    <!-- FLOATING NAVIGATION BUTTONS (Balik sa loob ng Activity Main) -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/nav_card"
         android:layout_width="match_parent"
@@ -38,8 +39,8 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             app:itemIconSize="22dp"
-            app:itemIconTint="@color/bnv_tab_item_color"
-            app:itemTextColor="@color/bnv_text_color"
+            app:itemIconTint="@color/nav_icon_color"
+            app:itemTextColor="@color/nav_icon_color"
             app:itemRippleColor="@color/light_orange_fade"
             app:itemActiveIndicatorStyle="@style/App.CustomIndicator"
             app:labelVisibilityMode="labeled"
