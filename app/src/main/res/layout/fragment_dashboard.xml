@@ -164,7 +164,14 @@
                     android:layout_height="wrap_content">
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_group" app:tint="@color/neon_orange"/>
                     <TextView android:layout_marginTop="8dp" android:text="Total of Pigs" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="1,240" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_total_pigs_dashboard"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/db_text_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -183,7 +190,14 @@
                     android:layout_height="wrap_content">
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_restaurant" app:tint="@color/neon_orange"/>
                     <TextView android:layout_marginTop="8dp" android:text="Active Feeding" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="12 Schedules" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_active_schedules_dashboard"
+                        android:text="0 Schedules"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/db_text_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -202,7 +216,14 @@
                     android:layout_height="wrap_content">
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_vaccines" app:tint="@color/alert_red"/>
                     <TextView android:layout_marginTop="8dp" android:text="Health Alerts" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="5 Due" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/alert_red" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_health_alerts_dashboard"
+                        android:text="0 Due"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/alert_red"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -220,8 +241,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_db_monitoring" app:tint="@color/neon_orange"/>
-                    <TextView android:layout_marginTop="8dp" android:text="Avg Growth" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="0.85 kg" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:layout_marginTop="8dp" android:text="Avg Weight" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_avg_weight_dashboard"
+                        android:text="0.0"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/db_text_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>

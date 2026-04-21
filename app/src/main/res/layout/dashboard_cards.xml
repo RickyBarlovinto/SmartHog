@@ -68,7 +68,7 @@
                 android:id="@+id/avgWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="82kg"
+                android:text="82"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/db_text_primary"/>

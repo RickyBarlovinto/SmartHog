@@ -4,20 +4,17 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.animation.AnimationUtils
-import android.widget.ImageView
+import android.view.LayoutInflater
+import android.view.Window
 
 object LoadingUtils {
     fun showLoading(context: Context): Dialog {
         val dialog = Dialog(context)
-        dialog.setContentView(R.layout.dialog_loading)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null)
+        dialog.setContentView(view)
         dialog.setCancelable(false)
-
-        val logo = dialog.findViewById<ImageView>(R.id.loading_logo)
-        val rotate = AnimationUtils.loadAnimation(context, R.anim.rotate_logo)
-        logo.startAnimation(rotate)
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         return dialog
     }

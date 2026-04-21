@@ -11,6 +11,8 @@
         android:label="Menu"
         tools:layout="@layout/fragment_menu" />
 
+    
+
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.smart_hog.DashboardFragment"
@@ -24,10 +26,10 @@
         tools:layout="@layout/fragment_feed" />
 
     <fragment
-        android:id="@+id/navigation_health"
-        android:name="com.example.smart_hog.HealthFragment"
-        android:label="Health"
-        tools:layout="@layout/fragment_health" />
+        android:id="@+id/navigation_monitor"
+        android:name="com.example.smart_hog.MonitorFragment"
+        android:label="Monitor"
+        tools:layout="@layout/fragment_monitor" />
 
     <fragment
         android:id="@+id/navigation_analytics"

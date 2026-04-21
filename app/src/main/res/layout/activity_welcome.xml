@@ -8,41 +8,29 @@
     tools:context=".WelcomeActivity">
 
     <TextView
-        android:id="@+id/brand_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="SMART-HOG"
-        android:textColor="#004D40"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/welcome_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="32dp"
         android:gravity="center"
-        android:text="WELCOME TO THE FUTURE OF PIG FARMING."
+        android:text="WELCOME TO THE FUTURE OF PIG FARMING"
         android:textColor="#263238"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/brand_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Updated Welcome Image (New Logo) -->
     <ImageView
         android:id="@+id/welcome_image"
-        android:layout_width="280dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/welcome_page"
+        android:layout_width="334dp"
+        android:layout_height="242dp"
+        android:layout_marginTop="40dp"
         android:scaleType="centerInside"
+        android:src="@drawable/smart_hog_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_title" />
@@ -52,97 +40,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="32dp"
         android:gravity="center"
-        android:text="OPTIMIZE YOUR PIGGERY WITH OUR TIME-BASED AUTOMATED SYSTEM."
+        android:text="OPTIMIZE YOUR PIGGERY WITH OUR TIME-BASED AUTOMATED SYSTEM"
         android:textColor="#263238"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_image" />
-
-    <LinearLayout
-        android:id="@+id/features_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintTop_toBottomOf="@id/sub_title">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_db_restaurant"
-                app:tint="#263238" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="FEEDING\nSCHEDULES"
-                android:textSize="10sp"
-                android:textColor="#263238"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_db_vaccines"
-                app:tint="#263238" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="HEALTH\nMONITORING"
-                android:textSize="10sp"
-                android:textColor="#263238"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_db_monitoring"
-                app:tint="#263238" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="PERFORMANCE\nINSIGHTS"
-                android:textSize="10sp"
-                android:textColor="#263238"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_get_started"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
         android:layout_marginBottom="32dp"
         android:text="Get Started"
         android:textAllCaps="false"

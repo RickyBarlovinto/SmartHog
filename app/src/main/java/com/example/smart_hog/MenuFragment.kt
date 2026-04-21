@@ -28,34 +28,28 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadUserData(view)
-
-        // Profile Icon Click
-        view.findViewById<View>(R.id.profile_icon).setOnClickListener {
-            navigateToPageWithLoading {
-                val intent = Intent(requireContext(), ProfileActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
-        // Navigation Items with Professional Loading Indicator
-        view.findViewById<MaterialCardView>(R.id.menu_dashboard).setOnClickListener {
+        // Dashboard
+        view.findViewById<MaterialCardView>(R.id.menu_dashboard)?.setOnClickListener {
             navigateToPageWithLoading { findNavController().navigate(R.id.navigation_dashboard) }
         }
 
-        view.findViewById<MaterialCardView>(R.id.menu_feed).setOnClickListener {
+        // Feed
+        view.findViewById<MaterialCardView>(R.id.menu_feed)?.setOnClickListener {
             navigateToPageWithLoading { findNavController().navigate(R.id.navigation_feed) }
         }
 
-        view.findViewById<MaterialCardView>(R.id.menu_health).setOnClickListener {
-            navigateToPageWithLoading { findNavController().navigate(R.id.navigation_health) }
+        // Monitor
+        view.findViewById<MaterialCardView>(R.id.menu_monitor)?.setOnClickListener {
+            navigateToPageWithLoading { findNavController().navigate(R.id.navigation_monitor) }
         }
 
-        view.findViewById<MaterialCardView>(R.id.menu_analytics).setOnClickListener {
+        // Analytics
+        view.findViewById<MaterialCardView>(R.id.menu_analytics)?.setOnClickListener {
             navigateToPageWithLoading { findNavController().navigate(R.id.navigation_analytics) }
         }
 
-        view.findViewById<MaterialCardView>(R.id.menu_settings).setOnClickListener {
+        // Settings
+        view.findViewById<MaterialCardView>(R.id.menu_settings)?.setOnClickListener {
             navigateToPageWithLoading { findNavController().navigate(R.id.navigation_settings) }
         }
     }
@@ -65,23 +59,6 @@ class MenuFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
             loading.dismiss()
             navigationAction()
-        }, 1500) // 1.5 seconds loading for smooth feel
-    }
-
-    private fun loadUserData(view: View) {
-        val prefs = requireContext().getSharedPreferences("user_profile", Context.MODE_PRIVATE)
-        val imageString = prefs.getString("image", null)
-        val profileIcon = view.findViewById<ImageView>(R.id.profile_icon)
-
-        if (imageString != null) {
-            val imageBytes = Base64.decode(imageString, Base64.DEFAULT)
-            val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            profileIcon.setImageBitmap(bitmap)
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        view?.let { loadUserData(it) }
+        }, 1200) // 1.2 seconds loading for smooth feel
     }
 }

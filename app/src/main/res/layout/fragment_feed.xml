@@ -15,8 +15,8 @@
 
         <ImageButton
             android:id="@+id/btn_back_feed"
-            android:layout_width="70dp"
-            android:layout_height="78dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_back_arrow"
             app:tint="@color/db_text_primary"
@@ -28,11 +28,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Feeding Schedules"
-            android:textSize="26sp"
+            android:text="Feeding"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/db_text_primary"
             app:layout_constraintStart_toEndOf="@id/btn_back_feed"
+            app:layout_constraintTop_toTopOf="@id/btn_back_feed"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back_feed" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon_feed"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/profile_gradient_bg"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_white"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp"
+            android:elevation="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/btn_back_feed"
             app:layout_constraintBottom_toBottomOf="@id/btn_back_feed" />
 
@@ -65,12 +83,16 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_new_schedule"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardElevation="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
                 <LinearLayout
                     android:padding="16dp"
                     android:gravity="center"
@@ -101,7 +123,7 @@
                 <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
                     <ImageView android:id="@+id/batch_icon" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_db_restaurant" android:background="@drawable/button_background_green" android:padding="8dp" app:tint="@color/white"/>
                     <LinearLayout android:layout_toEndOf="@id/batch_icon" android:layout_marginStart="12dp" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                        <TextView android:text="Starter Batch A" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text="Starter" android:textStyle="bold" android:textColor="@color/db_text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                         <TextView android:text="Age: 14 Days" android:textSize="12sp" android:textColor="@color/db_text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </RelativeLayout>

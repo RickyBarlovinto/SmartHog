@@ -86,6 +86,23 @@ class SettingsFragment : Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({
                 loading.dismiss()
                 Toast.makeText(requireContext(), "Signing out...", Toast.LENGTH_SHORT).show()
+                
+                // Clear User Data
+                val prefs = requireContext().getSharedPreferences("user_profile", Context.MODE_PRIVATE)
+                prefs.edit().clear().apply()
+
+                // Check Remember Me preference
+                val loginPrefs = requireContext().getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
+                val isRemembered = loginPrefs.getBoolean("remember_device", false)
+
+                val intent = if (isRemembered) {
+                    Intent(requireContext(), LoginActivity::class.java)
+                } else {
+                    Intent(requireContext(), WelcomeActivity::class.java)
+                }
+
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
                 requireActivity().finish()
             }, 1500)
         }

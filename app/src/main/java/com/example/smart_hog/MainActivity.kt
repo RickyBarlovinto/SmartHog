@@ -4,64 +4,79 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.setupWithNavController
+import com.example.smart_hog.databinding.ActivityMainBinding
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.material.icons.automirrored.outlined.ListAlt
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navView: BottomNavigationView
-    private lateinit var navCard: View
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private var selectedNavId by mutableStateOf(R.id.navigation_menu)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        navView = findViewById(R.id.bottom_nav_view)
-        navCard = findViewById(R.id.nav_card)
+        setupNavigation()
+        setupComposeBottomNav()
+    }
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+    private fun setupComposeBottomNav() {
+        val navItems = listOf(
+            NavItem(R.id.navigation_dashboard, "Dashboard", Icons.Outlined.Dashboard),
+            NavItem(R.id.navigation_feed, "Feeding", Icons.Outlined.Restaurant),
+            NavItem(R.id.navigation_menu, "Home", Icons.Outlined.Home),
+            NavItem(R.id.navigation_monitor, "Monitor", Icons.Outlined.Monitor),
+            NavItem(R.id.navigation_analytics, "Data Analytics", Icons.Outlined.Analytics)
+        )
 
-        navView.setOnItemSelectedListener { item ->
-            val currentId = navController.currentDestination?.id
-            if (currentId != item.itemId) {
-                val loading = LoadingUtils.showLoading(this)
-                Handler(Looper.getMainLooper()).postDelayed({
-                    loading.dismiss()
-                    navController.navigate(item.itemId)
-                }, 800)
+        binding.composeBottomNav.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                CustomBottomNavigation(
+                    items = navItems,
+                    selectedId = selectedNavId,
+                    onItemSelected = { item ->
+                        if (navController.currentDestination?.id != item.id) {
+                            navController.navigate(item.id)
+                        }
+                    }
+                )
             }
-            true
         }
+    }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                val loading = LoadingUtils.showLoading(this@MainActivity)
-                Handler(Looper.getMainLooper()).postDelayed({
-                    loading.dismiss()
-                    isEnabled = false
-                    onBackPressedDispatcher.onBackPressed()
-                    isEnabled = true
-                }, 600)
-            }
-        })
+    private fun setupNavigation() {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
-        // Visibility Control: Hide Nav Bar on Menu and other settings pages
+        // Handle Visibility and Selection of Navigation Bar
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
+            selectedNavId = destination.id
+            binding.composeBottomNav.visibility = when (destination.id) {
                 R.id.navigation_dashboard,
                 R.id.navigation_feed,
-                R.id.navigation_health,
-                R.id.navigation_analytics -> {
-                    navCard.visibility = View.VISIBLE
-                }
-                else -> {
-                    navCard.visibility = View.GONE
-                }
+                R.id.navigation_monitor,
+                R.id.navigation_analytics -> View.VISIBLE
+                else -> View.GONE // GONE when on navigation_menu (Home)
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

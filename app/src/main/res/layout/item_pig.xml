@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="24dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="4dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="2dp"
     app:strokeWidth="1dp"
-    app:strokeColor="#EEEEEE">
+    app:strokeColor="#F1F3F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,9 +24,9 @@
                 android:id="@+id/pigID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="#PG-1024"
-                android:textColor="@color/db_text_primary"
-                android:textSize="18sp"
+                android:text="#PG-1234"
+                android:textColor="#0B090A"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -34,111 +34,85 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:background="#E8F5E9"
-                android:padding="6dp"
-                android:text="Ahead"
-                android:textColor="@color/db_dark_green"
+                android:background="#E9F5EF"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="New"
+                android:textColor="#FF8A65"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <!-- Pig Image positioned BELOW ID -->
-        <RelativeLayout
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pigImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/pigImage"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/pig4"
-                app:shapeAppearanceOverlay="@style/Widget.MaterialComponents.ShapeableImageView"
-                app:strokeColor="@color/neon_orange"
-                app:strokeWidth="1dp" />
-
-            <!-- EDIT (Pencil) Icon instead of camera -->
-            <ImageButton
-                android:id="@+id/btnEditPigImage"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignEnd="@id/pigImage"
-                android:layout_alignBottom="@id/pigImage"
-                android:layout_margin="8dp"
-                android:background="@drawable/profile_gradient_bg"
-                android:src="@android:drawable/ic_menu_edit"
-                app:tint="@color/white"
-                android:elevation="4dp" />
-        </RelativeLayout>
+            android:layout_height="220dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pig4"
+            app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
         <TextView
             android:id="@+id/pigBatch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Batch: B-2024-MAR"
-            android:textColor="@color/db_text_secondary"
-            android:textSize="13sp" />
+            android:layout_marginTop="16dp"
+            android:text="2026-APR"
+            android:textColor="#808080"
+            android:textSize="16sp" />
 
-        <!-- WEIGHT AND PROGRESS -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/pigWeight"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:orientation="vertical">
+            android:text="Last Weight: 0"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/pigWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Last Weight: 85 kg"
-                android:textColor="@color/db_text_primary"
-                android:textStyle="bold" />
+        <ProgressBar
+            android:id="@+id/growthProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="16dp"
+            android:progress="60"
+            android:progressTint="#FF8A65"
+            android:progressBackgroundTint="#F1F3F5" />
 
-            <ProgressBar
-                android:id="@+id/growthProgress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_marginTop="8dp"
-                android:max="100"
-                android:progress="70"
-                android:progressBackgroundTint="#E0E0E0"
-                android:progressTint="@color/neon_orange" />
-
-        </LinearLayout>
-
-        <!-- ACTION BUTTONS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/historyBtn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="History"
-                android:textColor="@color/neon_orange" />
-
-            <View
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/updateBtn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update"
-                android:textColor="@color/neon_orange" />
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="HISTORY"
+                android:textColor="#FF8A65"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
 
+            <TextView
+                android:id="@+id/btnEditPigImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="UPDATE"
+                android:textColor="#FF8A65"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
         </LinearLayout>
 
     </LinearLayout>
-
 </com.google.android.material.card.MaterialCardView>
